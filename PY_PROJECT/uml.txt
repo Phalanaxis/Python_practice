@@ -1,0 +1,100 @@
+class general{
+    +__id
+    -get()
+    -set(val)
+}
+class patient{
+    +__surname
+    +__name
+    +__patronimic
+    +__yearOld
+    +__categori
+
+    -get()
+    -set(val)
+}
+
+class doctor{
+    +__surname
+    +__name
+    +__patronimic
+    +__spec
+    +__categori
+
+    -get()
+    -set(val)
+}
+
+class appeal{
+    +__doctor
+    +__patient
+    +__date
+    +__diagnos
+    +__price
+
+    -get()
+    -set(val)
+}
+
+class hospital{
+    +__money
+    +__patientList
+    +__doctorList
+    +__appealList
+    +__categorList
+
+    -get()
+    -set(val)
+}
+
+class patientList{
+    -getById(id)
+}
+
+class doctorList{
+    -getById(id)
+}
+class appealList{
+    -getById(id)
+}
+
+class dataJs{
+    +__hospital
+    +__file_read
+    +__file_write
+
+    -get()
+    -set(val)
+    -read(file_name)
+    -write(file_name)
+}
+class dataSql{
+    +__hospital
+    +__file_read
+    +__file_write
+
+    -get()
+    -set(val)
+    -read(file_name)
+    -write(file_name)
+}
+
+dataSql <|-- hospital
+dataJs <|-- hospital
+
+hospital <|-- patientList
+hospital <|-- doctorList
+hospital <|-- appealList
+
+general <|-- doctor
+general <|-- appeal
+general <|-- patient
+general <|-- hospital 
+
+appeal <|-- patient
+appeal <|-- doctor
+
+
+patientList <|-- patient
+doctorList <|-- doctor
+appealList <|-- appeal
